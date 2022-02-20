@@ -1,8 +1,6 @@
 import React from 'react'
 import { Routes } from './views/Routes'
 
-import './index.css'
-
 const App = function () {
   return (
     // TODO: Add suspense
