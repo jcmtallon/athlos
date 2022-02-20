@@ -5,8 +5,8 @@ import { Dashboard } from './dashboard/Dashboard'
 const Routes = function () {
   return (
     <RouterRoutes>
-      <Route path="dashboard" element={<Dashboard />} />
-      <Route path="*" element={<Navigate to="dashboard" />} />
+      <Route path="dashboard/*" element={<Dashboard />} />
+      <Route path="*" element={<Navigate replace to="dashboard" />} />
     </RouterRoutes>
   )
 }

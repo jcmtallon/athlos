@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes } from './views'
+import { Routes } from './views/Routes'
 
 import './index.css'
 
