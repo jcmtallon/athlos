@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
 import { getAthlete } from '../../../../services/firebase/firestore'
+
+const Wrapper = styled.div`
+  background-color: green;
+`
 
 const Athletes = function () {
   const [tempState, setTempState] = useState<any>(null)
@@ -15,7 +20,7 @@ const Athletes = function () {
   }, [])
 
   return (
-    <div>
+    <Wrapper>
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
       {tempState && (
         <div>
@@ -30,7 +35,7 @@ const Athletes = function () {
       <button type="button" className="">
         Default
       </button>
-    </div>
+    </Wrapper>
   )
 }
 
