@@ -1,9 +1,10 @@
+import { Button } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { getAthlete } from '../../../../services/firebase/firestore'
 
 const Wrapper = styled.div`
-  background-color: green;
+  background-color: grey;
 `
 
 const Athletes = function () {
@@ -32,6 +33,9 @@ const Athletes = function () {
           <div>{tempState.surnames}</div>
         </div>
       )}
+      <Button variant="contained" color="success">
+        Text
+      </Button>
       <button type="button" className="">
         Default
       </button>
