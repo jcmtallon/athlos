@@ -9,6 +9,7 @@
     "lint:fix": "eslint src/ --fix --ext .js,.jsx,.ts,tsx  --cache --cache-strategy content"
   },
   "dependencies": {
+    "@mui/icons-material": "^5.4.2",
     "@mui/material": "^5.4.2",
     "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",
     "@mui/styled-engine-sc": "^5.4.2",
