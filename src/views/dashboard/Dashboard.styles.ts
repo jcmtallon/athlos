@@ -20,6 +20,7 @@ const SideBar = styled.div`
   left: 0;
   width: 10rem;
   overflow: auto;
+  border-right: 1px solid #dedddc;
 `
 
 const Body = styled.div`
@@ -27,6 +28,8 @@ const Body = styled.div`
   flex: 1 1 0%;
   flex-direction: column;
   padding: 1rem;
+
+  background-color: #f6f6f4;
 `
 
 export { Body, SideBar, Wrapper, TopBar }

@@ -8,13 +8,14 @@ const Dashboard = function () {
     // TODO: Layout component
     // TODO: Suspense
     // TODO: lazy loading
+    // TODO: Rethink layout so each view has control over the whole screen.
     <S.Wrapper>
       <S.TopBar>Athletes</S.TopBar>
       <S.SideBar>
         <div>LOGO</div>
-        <div>athletes</div>
-        <div>marks</div>
-        <div>publications</div>
+        <div>Athletes</div>
+        <div>Marks</div>
+        <div>Yearbooks</div>
       </S.SideBar>
       <S.Body>
         <Routes>

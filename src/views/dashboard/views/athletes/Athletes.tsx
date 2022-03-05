@@ -1,11 +1,7 @@
-import { Button } from '@mui/material'
+import { Button, TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
 import { getAthlete } from '../../../../services/firebase/firestore'
-
-const Wrapper = styled.div`
-  background-color: grey;
-`
+import * as S from './Athletes.styles'
 
 const Athletes = function () {
   const [tempState, setTempState] = useState<any>(null)
@@ -21,8 +17,29 @@ const Athletes = function () {
   }, [])
 
   return (
-    <Wrapper>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <S.Wrapper>
+      <S.TopRow>
+        <S.Header>Search</S.Header>
+        <Button variant="contained" color="primary">
+          Add Athlete
+        </Button>
+      </S.TopRow>
+      <S.FilterRow>
+        <S.Filters>
+          <TextField label="Name" size="small" />
+          <TextField label="Category" size="small" />
+          <TextField label="Modality" size="small" />
+          <TextField label="Gender" size="small" />
+        </S.Filters>
+        <S.ActionButtonWrapper>
+          <Button variant="contained" color="inherit">
+            Reset
+          </Button>
+          <Button variant="contained" color="inherit">
+            Search
+          </Button>
+        </S.ActionButtonWrapper>
+      </S.FilterRow>
       {tempState && (
         <div>
           <div>{tempState.name}</div>
@@ -33,13 +50,7 @@ const Athletes = function () {
           <div>{tempState.surnames}</div>
         </div>
       )}
-      <Button variant="contained" color="success">
-        Text
-      </Button>
-      <button type="button" className="">
-        Default
-      </button>
-    </Wrapper>
+    </S.Wrapper>
   )
 }
 
