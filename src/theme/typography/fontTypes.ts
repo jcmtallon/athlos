@@ -43,13 +43,11 @@ const typography: Typography = {
       regular: {
         fontSize: '1.125rem', // 18px
         lineHeight: 1.55, // 28px | 1.75rem
-        letterSpacing: '0.003rem', // 0.5px
         fontWeight: 400, // regular
       },
       strong: {
         fontSize: '1.125rem', // 18px
         lineHeight: 1.55, // 28px | 1.75rem
-        letterSpacing: '0.003rem', // 0.5px
         fontWeight: 700, // bold
       },
     },
@@ -57,13 +55,11 @@ const typography: Typography = {
       regular: {
         fontSize: '1rem', // 16px
         lineHeight: 1.5, // 24px | 1.5rem
-        letterSpacing: '0.003rem', // 0.5px
         fontWeight: 400, // regular
       },
       strong: {
         fontSize: '1rem', // 16px
         lineHeight: 1.5, // 24px  | 1.5rem
-        letterSpacing: '0.003rem', // 0.5px
         fontWeight: 700, // bold
       },
     },
@@ -71,13 +67,11 @@ const typography: Typography = {
       regular: {
         fontSize: '0.875rem', // 14px
         lineHeight: 1.71, // 24px | 1.5rem
-        letterSpacing: '0.0015rem', // 0.25px
         fontWeight: 400, // regular
       },
       strong: {
         fontSize: '0.875rem', // 14px
         lineHeight: 1.71, // 24px | 1.5rem
-        letterSpacing: '0.0015rem', // 0.25px
         fontWeight: 700, // bold
       },
     },
@@ -85,13 +79,11 @@ const typography: Typography = {
       regular: {
         fontSize: '0.8125rem', // 13px
         lineHeight: 1.38, // 18px | 1.125rem
-        letterSpacing: '0.0015rem', // 0.25px
         fontWeight: 400, // regular
       },
       strong: {
         fontSize: '0.8125rem', // 13px
         lineHeight: 1.38, // 18px | 1.125rem
-        letterSpacing: '0.0015rem', // 0.25px
         fontWeight: 700, // bold
       },
     },
@@ -99,13 +91,11 @@ const typography: Typography = {
       regular: {
         fontSize: '0.75rem', // 12px
         lineHeight: 1.33, // 16px | 1rem
-        letterSpacing: '0.0018rem', // 0.3px
         fontWeight: 400, // regular
       },
       strong: {
         fontSize: '0.75rem', // 12px
         lineHeight: 1.33, // 16px | 1rem
-        letterSpacing: '0.0018rem', // 0.3px
         fontWeight: 700, // bold
       },
     },
@@ -113,13 +103,11 @@ const typography: Typography = {
       regular: {
         fontSize: '0.625rem', // 10px
         lineHeight: 1.2, // 12px | '1.333rem'
-        letterSpacing: '0.005rem', // 0.8px
         fontWeight: 400, // regular
       },
       strong: {
         fontSize: '0.625rem', // 10px
         lineHeight: 1.2, // 12px | 1.333rem
-        letterSpacing: '0.005rem', // 0.8px
         fontWeight: 700, // bold
       },
     },

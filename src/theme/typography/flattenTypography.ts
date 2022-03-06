@@ -1,5 +1,5 @@
 import { css, CSSObject } from 'styled-components'
-import { typography } from './typography'
+import { typography } from './fontTypes'
 import { Typography, BodyFontType, FontType } from './typographyTypes'
 
 type FlattenFontType = ReturnType<typeof css>

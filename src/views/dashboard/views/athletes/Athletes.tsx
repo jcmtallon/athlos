@@ -51,7 +51,7 @@ const Athletes = function () {
       <S.H6>Typography (H6)</S.H6>
       <S.H7>Typography (H7)</S.H7>
       <S.Lg>Typography (lg)</S.Lg>
-      <S.Base>Typography (base)</S.Base>
+      <S.Base>Typography (bs)</S.Base>
       <S.Md>Typography (md)</S.Md>
       <S.Sm>Typography (sm)</S.Sm>
       <S.Xs>Typography (xs)</S.Xs>

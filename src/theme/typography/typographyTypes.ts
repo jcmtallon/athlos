@@ -7,7 +7,7 @@ interface FontType {
   fontSize: FontSize
   fontWeight: FontWeight
   lineHeight: LineHeight
-  letterSpacing?: LetterSpacing
+  letterSpacing?: LetterSpacing // Not in use for now.
 }
 
 interface BodyFontType {
