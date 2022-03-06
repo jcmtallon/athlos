@@ -1,5 +1,5 @@
-import { CssBaseline } from '@mui/material'
 import React from 'react'
+import { GlobalStyles, ThemeProvider } from './theme'
 import { Routes } from './views/Routes'
 
 const App = function () {
@@ -10,8 +10,10 @@ const App = function () {
       TODO: Add theme provider
       TODO: Add AppErrorBoundary
       TODO: Add some ToastProvider */}
-      <CssBaseline />
-      <Routes />
+      <GlobalStyles />
+      <ThemeProvider>
+        <Routes />
+      </ThemeProvider>
     </>
   )
 }
