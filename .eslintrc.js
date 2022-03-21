@@ -1,8 +1,5 @@
 module.exports = {
     extends: ['@jcmtallon/eslint-config-glamping-react-ts', '@jcmtallon/eslint-config-glamping-react-ts/hooks', "plugin:prettier/recommended"],
-    parserOptions: {
-        project: ["./tsconfig.json"]
-    },
     rules: {
         'react/jsx-props-no-spreading': 'off',
         'react/require-default-props': 'off',
@@ -16,4 +13,15 @@ module.exports = {
           },
         ],
       },
+      // Eslint was complaining that this file didn't match my project config. 
+      // I applied the most voted solution indicated in this thread. Narrowing down the parser option to only ts files. 
+      // https://stackoverflow.com/questions/58510287/parseroptions-project-has-been-set-for-typescript-eslint-parser
+      overrides: [
+        {
+          files: ['*.ts', '*.tsx'],
+          parserOptions: {
+            project: ['./tsconfig.json'],
+          },
+        },
+      ],
   }
