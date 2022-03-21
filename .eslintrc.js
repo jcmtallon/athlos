@@ -4,6 +4,7 @@ module.exports = {
         project: ["./tsconfig.json"]
     },
     rules: {
+        'react/jsx-props-no-spreading': 'off',
         'react/require-default-props': 'off',
         'react/jsx-no-useless-fragment': 'off',
         'default-param-last': 'off',

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Button } from '../../../../components'
 import { getAthlete } from '../../../../services/firebase/firestore'
 import * as S from './Athletes.styles'
 
@@ -56,6 +57,7 @@ const Athletes = function () {
       <S.Sm>Typography (sm)</S.Sm>
       <S.Xs>Typography (xs)</S.Xs>
       <S.Xxs>Typography (xxs)</S.Xxs>
+      <Button>TEST</Button>
     </S.Wrapper>
   )
 }
