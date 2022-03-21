@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button } from '../../../../components'
+import { Button } from 'src/components'
 import { getAthlete } from '../../../../services/firebase/firestore'
 import * as S from './Athletes.styles'
 
