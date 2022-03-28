@@ -6,22 +6,19 @@ import { Routes } from './views/Routes'
 function App() {
   return (
     <>
-      {/* TODO: Add suspense
-      TODO: Add i18nProvider
-      TODO: Add theme provider
-      TODO: Add AppErrorBoundary
-      TODO: Add some ToastProvider */}
       <ThemeProvider>
         <GlobalStyles />
         <AppErrorBoundary>
-          {/* TODO: SUSPENSE */}
-          {/* TODO: i18n provider */}
-          {/* TODO: redux store */}
-          {/* TODO: Connected Router? */}
-          {/* TODO: Tracking Provider? */}
-          {/* TODO: Remote Config Provider */}
-          {/* TODO: Toast Provider */}
-          <Routes />
+          <React.Suspense fallback={<div>Suspense Fallback!!</div>}>
+            {/* TODO: SUSPENSE */}
+            {/* TODO: i18n provider */}
+            {/* TODO: redux store */}
+            {/* TODO: Connected Router? */}
+            {/* TODO: Tracking Provider? */}
+            {/* TODO: Remote Config Provider */}
+            {/* TODO: Toast Provider */}
+            <Routes />
+          </React.Suspense>
         </AppErrorBoundary>
       </ThemeProvider>
     </>
