@@ -4,7 +4,7 @@ import { lightPalette } from 'theme'
 import { getAthlete } from '../../../../services/firebase/firestore'
 import * as S from './Athletes.styles'
 
-const Athletes = function () {
+function Athletes() {
   const [tempState, setTempState] = useState<any>(null)
 
   useEffect(() => {

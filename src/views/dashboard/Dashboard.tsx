@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { Athletes } from './views/athletes/Athletes'
 import * as S from './Dashboard.styles'
 
-const Dashboard = function () {
+function Dashboard() {
   return (
     // TODO: Layout component
     // TODO: Suspense

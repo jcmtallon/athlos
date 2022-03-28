@@ -1,5 +1,5 @@
 import React, { ErrorInfo, ReactNode } from 'react'
-import ErrorDisplay from './ErrorDisplay'
+import { ErrorDisplay } from './ErrorDisplay'
 
 interface ErrorBoundaryProps {
   children?: ReactNode

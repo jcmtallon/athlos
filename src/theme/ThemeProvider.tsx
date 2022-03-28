@@ -6,7 +6,7 @@ interface ThemeProviderProps {
   children?: ReactNode
 }
 
-const ThemeProvider = function (props: ThemeProviderProps) {
+function ThemeProvider(props: ThemeProviderProps) {
   return <BaseThemeProvider theme={theme}>{props.children}</BaseThemeProvider>
 }
 
