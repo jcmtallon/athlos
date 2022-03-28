@@ -11,7 +11,7 @@ interface ButtonProps extends Omit<BaseButtonProps, 'ref'> {
   loading?: boolean
 }
 
-const Button = function (props: ButtonProps, ref: Ref<HTMLButtonElement>) {
+function Button(props: ButtonProps, ref: Ref<HTMLButtonElement>) {
   const {
     variant = 'solid',
     color = 'primary',

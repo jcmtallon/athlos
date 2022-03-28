@@ -2,7 +2,7 @@ import React from 'react'
 import { Navigate, Route, Routes as RouterRoutes } from 'react-router-dom'
 import { Dashboard } from './dashboard/Dashboard'
 
-const Routes = function () {
+function Routes() {
   return (
     <RouterRoutes>
       <Route path="dashboard/*" element={<Dashboard />} />

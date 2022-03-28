@@ -12,6 +12,10 @@ module.exports = {
             varsIgnorePattern: '^_',
           },
         ],
+        'react/function-component-definition': ['error', {
+          namedComponents: 'function-declaration',
+          unnamedComponents: 'arrow-function',
+        }],
       },
       // Eslint was complaining that this file didn't match my project config. 
       // I applied the most voted solution indicated in this thread. Narrowing down the parser option to only ts files. 

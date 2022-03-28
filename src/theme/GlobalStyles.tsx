@@ -187,6 +187,8 @@ const GlobalStyles = createGlobalStyle`
   a {
     outline: none !important;
   }
+
+  /* TODO: focus outline styles */
 `
 
 export { GlobalStyles }

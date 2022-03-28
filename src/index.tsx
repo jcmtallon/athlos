@@ -4,6 +4,11 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
+// TODO: polyfill/ie11
+// TODO: polyfill/stable
+// TODO: configs: like firebase, cypress, google maps, datadog, intercom, logRocket, mixpanel, stripe, google analytics, etc.
+// TODO: tracking
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
