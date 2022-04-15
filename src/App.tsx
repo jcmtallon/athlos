@@ -9,7 +9,7 @@ function App() {
       <ThemeProvider>
         <GlobalStyles />
         <AppErrorBoundary>
-          <React.Suspense fallback={<div>Suspense Fallback!!</div>}>
+          <React.Suspense fallback={<div>Initial Suspense</div>}>
             {/* TODO: SUSPENSE */}
             {/* TODO: i18n provider */}
             {/* TODO: redux store */}

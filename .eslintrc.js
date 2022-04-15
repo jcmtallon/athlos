@@ -16,6 +16,7 @@ module.exports = {
           namedComponents: 'function-declaration',
           unnamedComponents: 'arrow-function',
         }],
+        '@typescript-eslint/no-unused-vars': ['warn', { vars: 'all', args: 'after-used', ignoreRestSiblings: true }]
       },
       // Eslint was complaining that this file didn't match my project config. 
       // I applied the most voted solution indicated in this thread. Narrowing down the parser option to only ts files. 

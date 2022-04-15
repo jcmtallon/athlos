@@ -1,0 +1,1 @@
+export { pipeProviders } from './pipeProviders'
