@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import * as S from './DesktopDashboardLayout.styles'
 import { useCollapsibleSideNav } from './useCollapsibleSideNav'
+import { SideNav as DefaultSideNav } from '../../SideNav'
 
 interface DesktopDashboardLayoutProps {
   sideNav?: ReactNode
@@ -13,7 +14,7 @@ function DesktopDashboardLayout(props: DesktopDashboardLayoutProps) {
 
   return (
     <S.Layout {...otherProps}>
-      <S.SideNav {...sideNavProps}>{sideNav ?? 'SIDE-NAV-MENU'}</S.SideNav>
+      <S.SideNav {...sideNavProps}>{sideNav ?? <DefaultSideNav />}</S.SideNav>
       <S.Content>{children}</S.Content>
     </S.Layout>
   )

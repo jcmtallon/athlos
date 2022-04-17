@@ -9,7 +9,6 @@ function Routes() {
     <RouterRoutes>
       <Route path="design-system" element={<DesignSystem />} />
       <Route path="design" element={<DesignSystem />} />
-      {/* TODO: Legal Pages */}
       <Route path="dashboard/*" element={<Dashboard />} />
       <Route path="*" element={<Navigate replace to="dashboard" />} />
     </RouterRoutes>
