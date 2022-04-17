@@ -28,6 +28,7 @@
   "devDependencies": {
     "@jcmtallon/eslint-config-glamping-react-ts": "^0.0.18",
     "@jcmtallon/prettier-config": "0.0.1",
+    "@jcmtallon/ts-allies": "^0.0.1",
     "@types/styled-components": "^5.1.23",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",

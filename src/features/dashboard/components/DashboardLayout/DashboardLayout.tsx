@@ -8,28 +8,10 @@ interface DashboardLayoutProps {
 
 function DashboardLayout(props: DashboardLayoutProps) {
   // TODO: Add Controls / bottomNav / other sections
-
   // TODO: Use Responsive Layout in layout
-  //   const layout = (
-  //     <ResponsiveLayout
-  //       renderDesktop={() => (
-  //         <DesktopDashboardLayout>
-  //
-  //           {children}
-  //         </DesktopDashboardLayout>
-  //       )}
-  //       renderMobile={() => (
-  //         <>
-  //
-  //           {children}
-  //         </>
-  //       )}
-  //     />
-  //   )
+  // TODO: include useContextProvider??
 
   const layout = <DesktopDashboardLayout sideNav={props.sideNav}>{props.children}</DesktopDashboardLayout>
-
-  //   TODO: include useContextProvider??
 
   return layout
 }

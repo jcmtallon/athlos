@@ -1,6 +1,6 @@
 import React from 'react'
-import * as S from './Marks.styles'
 import { DashboardLayout } from '../../components/DashboardLayout'
+import * as S from './Marks.styles'
 
 function Marks() {
   return (

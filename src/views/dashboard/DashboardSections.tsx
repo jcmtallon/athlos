@@ -1,33 +1,34 @@
-// TODO: Bring this from the Criteria feature.
-interface CriteriaProps {
-  requiresPermission: string
-  requiresFeatureFlag: string
-  requiresSubscriptionFeature: string
-}
-
-type DashboardSectionRequirements<Id extends string> = CriteriaProps & { id: Id }
-
-function section<Id extends string>(id: Id, requirements: CriteriaProps): DashboardSectionRequirements<Id> {
-  return {
-    id,
-    ...requirements,
-  }
-}
+import React from 'react'
+import { createDashboardSection } from 'features/dashboard'
+import { IconRunner } from 'components'
 
 const dashboardSections = [
-  section('athletes', {
+  createDashboardSection('athletes', {
+    label: 'Athletes',
+    desc: 'Some desc',
+    icon: <IconRunner />,
+    to: 'athletes',
+    mobileStatus: 'ENABLED',
+    desktopStatus: 'ENABLED',
     requiresPermission: '',
     requiresFeatureFlag: '',
     requiresSubscriptionFeature: '',
   }),
-  section('marks', {
+  createDashboardSection('marks', {
+    label: 'Marks',
+    desc: 'Some desc',
+    icon: <IconRunner />,
+    to: 'marks',
+    mobileStatus: 'ENABLED',
+    desktopStatus: 'ENABLED',
     requiresPermission: '',
     requiresFeatureFlag: '',
     requiresSubscriptionFeature: '',
   }),
 ]
 
+// TODO: change to AthlosDashboardSectionId
 type DashboardSectionId = typeof dashboardSections[number]['id']
 
 export { dashboardSections }
-export type { DashboardSectionId, DashboardSectionRequirements }
+export type { DashboardSectionId }

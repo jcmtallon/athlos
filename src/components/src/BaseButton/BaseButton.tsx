@@ -7,7 +7,7 @@ type BaseButtonProps = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>
  * Contains as few styles as possible.
  * It aims to be a simple building block for creating other buttons.
  */
-const BaseButton = function (props: BaseButtonProps, ref: Ref<HTMLButtonElement>) {
+function BaseButton(props: BaseButtonProps, ref: Ref<HTMLButtonElement>) {
   const { children, ...otherProps } = props
 
   return (
