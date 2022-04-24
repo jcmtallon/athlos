@@ -1,5 +1,6 @@
 import React from 'react'
 import { pipeProviders } from 'utils'
+import { DashboardLayout } from './components/DashboardLayout'
 import { DashboardRouter } from './DashboardRouter'
 
 const DashboardProviders = pipeProviders()
@@ -12,9 +13,11 @@ const DashboardProviders = pipeProviders()
 function Dashboard() {
   return (
     <DashboardProviders>
-      {/* TODO: Another suspense ? with a page skeleton */}
-      {/* TODO: Other Data providers / Stripe */}
-      <DashboardRouter />
+      <DashboardLayout>
+        {/* TODO: Other Data providers / Stripe */}
+        {/* TODO: Another suspense ? with a page skeleton */}
+        <DashboardRouter />
+      </DashboardLayout>
     </DashboardProviders>
   )
 }

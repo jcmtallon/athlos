@@ -3,6 +3,18 @@ import React from 'react'
 import { GlobalStyles, ThemeProvider } from './theme'
 import { Routes } from './views/Routes'
 
+// TODO: use `AppProvider` with `pipeProviders` strategy?
+// - TODO: Redux
+// - TODO: ConnectedRouter
+// - TODO: i18N
+// - TODO: Suspense + ActivityIndicator fallback
+// - TODO: React.Suspense
+// - TODO: GlobalStyles
+// - TODO: App ErrorBoundary
+// - TODO: TrackingProvider
+// - TODO: RemoteConfigProvider
+// - TODO: ToastProvider
+
 function App() {
   return (
     <>
@@ -10,13 +22,6 @@ function App() {
         <GlobalStyles />
         <AppErrorBoundary>
           <React.Suspense fallback={<div>Initial Suspense</div>}>
-            {/* TODO: SUSPENSE */}
-            {/* TODO: i18n provider */}
-            {/* TODO: redux store */}
-            {/* TODO: Connected Router? */}
-            {/* TODO: Tracking Provider? */}
-            {/* TODO: Remote Config Provider */}
-            {/* TODO: Toast Provider */}
             <Routes />
           </React.Suspense>
         </AppErrorBoundary>

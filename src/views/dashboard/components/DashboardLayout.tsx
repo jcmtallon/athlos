@@ -1,4 +1,4 @@
-import { DesktopDashboardLayout, SideNav } from 'features/dashboard'
+import { DesktopDashboardLayout, SideNav, DashboardLayoutSlotsProvider } from 'features/dashboard'
 import React, { ReactNode } from 'react'
 import { dashboardSections } from '../DashboardSections'
 
@@ -10,14 +10,13 @@ interface DashboardLayoutProps {
 function DashboardLayout(props: DashboardLayoutProps) {
   // TODO: Add Controls / bottomNav / other sections
   // TODO: Use Responsive Layout in layout
-  // TODO: include useContextProvider??
   const sideNav = <SideNav url="/dashboard" sections={dashboardSections} displayType="desktop" />
 
   const layout = (
     <DesktopDashboardLayout sideNav={props.sideNav ?? sideNav}>{props.children}</DesktopDashboardLayout>
   )
 
-  return layout
+  return <DashboardLayoutSlotsProvider sideNav={sideNav}>{layout}</DashboardLayoutSlotsProvider>
 }
 
 const MemoizedDashboardLayout = React.memo(DashboardLayout)
