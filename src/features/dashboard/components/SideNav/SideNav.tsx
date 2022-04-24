@@ -4,7 +4,7 @@ import { SideNavLink } from './SideNavLink'
 
 function SideNav<Id extends string>(props: NavProps<Id>) {
   const renderNavLink: NavProps<Id>['renderNavLink'] = props => (
-    <SideNavLink icon={props.icon} desc={props.desc} href={props.to} label={props.label} />
+    <SideNavLink key={props.id} icon={props.icon} desc={props.desc} href={props.to} label={props.label} />
   )
 
   return <Nav {...props} renderNavLink={renderNavLink} />

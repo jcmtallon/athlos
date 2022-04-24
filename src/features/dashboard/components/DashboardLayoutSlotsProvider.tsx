@@ -23,6 +23,7 @@ interface DashboardLayoutSlotsProviderProps extends Partial<DashboardLayoutSlots
 function DashboardLayoutSlotsProvider(props: DashboardLayoutSlotsProviderProps) {
   const slots = useDashboardLayoutSlots()
   const { children, ...providedSlots } = props
+
   const value = useMemo<DashboardLayoutSlotsContextValue>(
     () => ({
       sideNav: providedSlots.sideNav ?? slots.sideNav,
