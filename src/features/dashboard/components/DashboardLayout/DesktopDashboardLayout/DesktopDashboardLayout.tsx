@@ -14,9 +14,6 @@ function DesktopDashboardLayout(props: DesktopDashboardLayoutProps) {
   const slots = useDashboardLayoutSlots()
   const sideNavProps = useCollapsibleSideNav()
 
-  console.log('sideNav', sideNav)
-  console.log('navProps', slots.sideNav)
-
   return (
     <S.Layout {...otherProps}>
       <S.SideNav {...sideNavProps}>{sideNav ?? slots.sideNav}</S.SideNav>

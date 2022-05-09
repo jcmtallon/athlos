@@ -7,9 +7,12 @@ import * as S from './Athletes.styles'
 function Athletes() {
   const [tempState, setTempState] = useState<any>(null)
 
+  console.log(tempState)
+
   useEffect(() => {
     const fetchData = async () => {
       const athlete = await getAthlete()
+      console.log('fetched')
       setTempState(athlete)
     }
 
@@ -39,11 +42,10 @@ function Athletes() {
         {tempState && (
           <div>
             <div>{tempState.name}</div>
-            <div>{tempState.license}</div>
-            <div>{tempState.category}</div>
-            <div>{tempState.club}</div>
-            <div>{tempState.province}</div>
-            <div>{tempState.surnames}</div>
+            <div>{tempState.surname}</div>
+            <div>{tempState.birth_date.nanoseconds}</div>
+            <div>{tempState.birth_place}</div>
+            <div>{tempState.license_code}</div>
           </div>
         )}
       </S.Wrapper>
