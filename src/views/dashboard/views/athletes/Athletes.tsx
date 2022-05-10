@@ -1,7 +1,7 @@
 import { DashboardLayout } from 'features/dashboard'
 import React, { useEffect, useState } from 'react'
 
-import { getAthlete } from '../../../../services/firebase/firestore'
+import { getAthlete, getAthletes } from '../../../../services/firebase/firestore'
 import * as S from './Athletes.styles'
 
 function Athletes() {
@@ -46,6 +46,9 @@ function Athletes() {
             <div>{tempState.birth_date.nanoseconds}</div>
             <div>{tempState.birth_place}</div>
             <div>{tempState.license_code}</div>
+            <button type="button" onClick={() => getAthletes()}>
+              Log athletes
+            </button>
           </div>
         )}
       </S.Wrapper>

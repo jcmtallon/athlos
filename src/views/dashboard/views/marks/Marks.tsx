@@ -1,6 +1,6 @@
 import { DashboardLayout } from 'features/dashboard'
 import React, { useEffect, useState } from 'react'
-import { getMark } from 'services/firebase/firestore'
+import { addMark, getMark } from 'services/firebase/firestore'
 import * as S from './Marks.styles'
 
 function Marks() {
@@ -23,6 +23,9 @@ function Marks() {
           <div>
             <div>{marks.value}</div>
             <div>{marks.gender}</div>
+            <button type="button" onClick={() => addMark()}>
+              Add Mark
+            </button>
           </div>
         )}
       </S.Wrapper>

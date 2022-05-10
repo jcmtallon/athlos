@@ -1,4 +1,4 @@
-import { getFirestore, doc, getDoc } from 'firebase/firestore'
+import { getFirestore, doc, getDoc, addDoc, collection, getDocs } from 'firebase/firestore/lite'
 import { app } from './firebaseSetup'
 
 const firestore = getFirestore(app)
@@ -21,4 +21,19 @@ const getAthlete = async () => {
   return data
 }
 
-export { getMark, getAthlete }
+const getAthletes = async () => {
+  const colRef = collection(firestore, `athletes`)
+  const querySnapshot = await getDocs(colRef)
+
+  querySnapshot.forEach(doc => {
+    console.log(`${doc.id} => ${doc.data()}`)
+  })
+}
+
+const addMark = async () => {
+  const colRef = collection(firestore, `marks`)
+  const response = await addDoc(colRef, { value: 1234 })
+  console.log(response)
+}
+
+export { getMark, getAthlete, addMark, getAthletes }
