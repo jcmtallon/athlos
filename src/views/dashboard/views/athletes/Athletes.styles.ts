@@ -28,4 +28,14 @@ const ActionButtonWrapper = styled.div`
   grid-template-columns: auto auto;
 `
 
-export { ActionButtonWrapper, Header, Wrapper, Filters, FilterRow, TopRow }
+const Table = styled.table`
+  width: 100%;
+  margin-top: 20px;
+`
+
+const Cell = styled.td`
+  text-align: center;
+  padding: 6px;
+`
+
+export { ActionButtonWrapper, Header, Wrapper, Filters, FilterRow, TopRow, Table, Cell }

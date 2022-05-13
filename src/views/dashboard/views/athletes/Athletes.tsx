@@ -1,23 +1,40 @@
 import { DashboardLayout } from 'features/dashboard'
 import React, { useEffect, useState } from 'react'
 
-import { getAthlete, getAthletes } from '../../../../services/firebase/firestore'
+import { getAthletes, getClubs, getFederations } from '../../../../services/firebase/firestore'
 import * as S from './Athletes.styles'
 
 function Athletes() {
-  const [tempState, setTempState] = useState<any>(null)
+  const [athletes, setAthletes] = useState<any[]>([])
+  const [clubs, setClubs] = useState<any>(null)
+  const [federations, setFederations] = useState<any>(null)
 
-  console.log(tempState)
+  useEffect(() => {
+    const fetchClubs = async () => {
+      const data = await getClubs()
+      setClubs(data)
+    }
+
+    fetchClubs()
+  }, [])
+
+  useEffect(() => {
+    const fetchFederation = async () => {
+      const data = await getFederations()
+      console.log(data)
+      setFederations(data)
+    }
+
+    fetchFederation()
+  }, [])
 
   useEffect(() => {
     const fetchData = async () => {
-      const athlete = await getAthlete()
-      console.log('fetched')
-      setTempState(athlete)
+      const data = await getAthletes()
+      setAthletes(data)
     }
 
     fetchData()
-    // getMark()
   }, [])
 
   return (
@@ -39,17 +56,35 @@ function Athletes() {
             <button type="button">Search</button>
           </S.ActionButtonWrapper>
         </S.FilterRow>
-        {tempState && (
-          <div>
-            <div>{tempState.name}</div>
-            <div>{tempState.surname}</div>
-            <div>{tempState.birth_date.nanoseconds}</div>
-            <div>{tempState.birth_place}</div>
-            <div>{tempState.license_code}</div>
-            <button type="button" onClick={() => getAthletes()}>
-              Log athletes
-            </button>
-          </div>
+        {athletes && clubs && federations && (
+          <S.Table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Nationality</th>
+                <th>Birth place</th>
+                <th>Birth date</th>
+                <th>License code</th>
+                <th>Club</th>
+                <th>Federation</th>
+              </tr>
+            </thead>
+            <tbody>
+              {athletes.map(athlete => (
+                <tr key={athlete.id}>
+                  <S.Cell>{athlete.name}</S.Cell>
+                  <S.Cell>{athlete.surnames}</S.Cell>
+                  <S.Cell>{athlete.nationality}</S.Cell>
+                  <S.Cell>{athlete.birth_place}</S.Cell>
+                  <S.Cell>{athlete.birth_date}</S.Cell>
+                  <S.Cell>{athlete.license_code}</S.Cell>
+                  <S.Cell>{clubs[athlete.club].name}</S.Cell>
+                  <S.Cell>{federations[athlete.federation].name}</S.Cell>
+                </tr>
+              ))}
+            </tbody>
+          </S.Table>
         )}
       </S.Wrapper>
     </DashboardLayout>
