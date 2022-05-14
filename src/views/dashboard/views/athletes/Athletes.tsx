@@ -1,13 +1,14 @@
 import { DashboardLayout } from 'features/dashboard'
 import React, { useEffect, useState } from 'react'
+import { Athlete, Club, Federation } from 'types'
 
 import { getAthletes, getClubs, getFederations } from '../../../../services/firebase/firestore'
 import * as S from './Athletes.styles'
 
 function Athletes() {
-  const [athletes, setAthletes] = useState<any[]>([])
-  const [clubs, setClubs] = useState<any>(null)
-  const [federations, setFederations] = useState<any>(null)
+  const [athletes, setAthletes] = useState<Athlete[]>([])
+  const [clubs, setClubs] = useState<{ [key: string]: Club } | null>(null)
+  const [federations, setFederations] = useState<{ [key: string]: Federation } | null>(null)
 
   useEffect(() => {
     const fetchClubs = async () => {
@@ -21,7 +22,6 @@ function Athletes() {
   useEffect(() => {
     const fetchFederation = async () => {
       const data = await getFederations()
-      console.log(data)
       setFederations(data)
     }
 
@@ -72,15 +72,15 @@ function Athletes() {
             </thead>
             <tbody>
               {athletes.map(athlete => (
-                <tr key={athlete.id}>
+                <tr key={athlete.athleteId}>
                   <S.Cell>{athlete.name}</S.Cell>
                   <S.Cell>{athlete.surnames}</S.Cell>
                   <S.Cell>{athlete.nationality}</S.Cell>
-                  <S.Cell>{athlete.birth_place}</S.Cell>
-                  <S.Cell>{athlete.birth_date}</S.Cell>
-                  <S.Cell>{athlete.license_code}</S.Cell>
-                  <S.Cell>{clubs[athlete.club].name}</S.Cell>
-                  <S.Cell>{federations[athlete.federation].name}</S.Cell>
+                  <S.Cell>{athlete.birthPlace}</S.Cell>
+                  <S.Cell>{athlete.birthDate}</S.Cell>
+                  <S.Cell>{athlete.licenseCode}</S.Cell>
+                  <S.Cell>{clubs[athlete.clubId].name}</S.Cell>
+                  <S.Cell>{federations[athlete.federationId].name}</S.Cell>
                 </tr>
               ))}
             </tbody>

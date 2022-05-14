@@ -1,4 +1,5 @@
-import { getFirestore, doc, getDoc, addDoc, collection, getDocs, Timestamp } from 'firebase/firestore/lite'
+import { getFirestore, doc, getDoc, addDoc, collection, getDocs } from 'firebase/firestore/lite'
+import { Athlete, Club, Federation } from 'types'
 import { app } from './firebaseSetup'
 
 const firestore = getFirestore(app)
@@ -25,48 +26,48 @@ const getClubs = async () => {
   const clubsRef = collection(firestore, `clubs`)
   const docs = await getDocs(clubsRef)
 
-  const clubs: { [key: string]: any } = {}
+  const clubs: { [key: string]: Club } = {}
 
   docs.forEach(doc => {
     const data = doc.data()
-    clubs[doc.id] = { name: data.name, id: doc.id }
+    clubs[doc.id] = { name: data.name, clubId: doc.id }
   })
 
-  return clubs as Club[]
+  return clubs
 }
 
 const getFederations = async () => {
   const federationRef = collection(firestore, `federations`)
   const docs = await getDocs(federationRef)
 
-  const federation: { [key: string]: any } = {}
+  const federations: { [key: string]: Federation } = {}
 
   docs.forEach(doc => {
     const data = doc.data()
-    federation[doc.id] = { name: data.name }
+    federations[doc.id] = { name: data.name, federationId: doc.id }
   })
 
-  return federation
+  return federations
 }
 
 const getAthletes = async () => {
   const athletesRef = collection(firestore, `athletes`)
   const docs = await getDocs(athletesRef)
 
-  const athletes: any[] = []
+  const athletes: Athlete[] = []
 
   docs.forEach(doc => {
     const data = doc.data()
     athletes.push({
-      id: doc.id,
+      athleteId: doc.id,
       name: data.name,
       surnames: data.surnames,
       nationality: data.nationality,
-      birth_place: data.birth_place,
-      birth_date: data.birth_date.toDate().toISOString(),
-      club: data.club,
-      federation: data.federation,
-      license_code: data.license_code,
+      birthPlace: data.birth_place,
+      birthDate: data.birth_date.toDate().toISOString(),
+      clubId: data.club,
+      federationId: data.federation,
+      licenseCode: data.license_code,
     })
   })
 

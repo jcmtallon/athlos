@@ -1,6 +1,6 @@
 interface Club {
   name: string
-  id: string
+  clubId: string
 }
 
 export type { Club }
