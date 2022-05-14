@@ -1,6 +1,6 @@
 import { DashboardLayout } from 'features/dashboard'
 import React, { useEffect, useState } from 'react'
-import { addMark, getMark } from 'services/firebase/firestore'
+import { addMark, getMark } from 'olympos'
 import * as S from './Marks.styles'
 
 function Marks() {
@@ -9,7 +9,6 @@ function Marks() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await getMark()
-      console.log(response)
       setMarks(response)
     }
 

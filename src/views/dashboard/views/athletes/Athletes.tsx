@@ -1,8 +1,6 @@
 import { DashboardLayout } from 'features/dashboard'
 import React, { useEffect, useState } from 'react'
-import { Athlete, Club, Federation } from 'types'
-
-import { getAthletes, getClubs, getFederations } from '../../../../services/firebase/firestore'
+import { listAthletes, Athlete, Club, Federation, getClubs, getFederations } from 'olympos'
 import * as S from './Athletes.styles'
 
 function Athletes() {
@@ -30,7 +28,7 @@ function Athletes() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getAthletes()
+      const data = await listAthletes()
       setAthletes(data)
     }
 
