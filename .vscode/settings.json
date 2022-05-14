@@ -2,5 +2,31 @@
   "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
     },
-    "eslint.probe": ["typescript", "javascript", "typescriptreact", "javascriptreact"],
+    "eslint.probe": [
+      "typescript",
+      "javascript",
+      "typescriptreact",
+      "javascriptreact"
+    ],
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#7b7438",
+      "activityBar.activeBorder": "#66b9b0",
+      "activityBar.background": "#7b7438",
+      "activityBar.foreground": "#e7e7e7",
+      "activityBar.inactiveForeground": "#e7e7e799",
+      "activityBarBadge.background": "#66b9b0",
+      "activityBarBadge.foreground": "#15202b",
+      "sash.hoverBorder": "#7b7438",
+      "statusBar.background": "#585328",
+      "statusBar.foreground": "#e7e7e7",
+      "statusBarItem.hoverBackground": "#7b7438",
+      "statusBarItem.remoteBackground": "#585328",
+      "statusBarItem.remoteForeground": "#e7e7e7",
+      "titleBar.activeBackground": "#585328",
+      "titleBar.activeForeground": "#e7e7e7",
+      "titleBar.inactiveBackground": "#58532899",
+      "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#585328",
 }
