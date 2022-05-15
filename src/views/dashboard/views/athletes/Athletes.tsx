@@ -40,14 +40,16 @@ function Athletes() {
       <S.Wrapper>
         <S.TopRow>
           <S.Header>Search</S.Header>
-          <button type="button">Add Athlete</button>
         </S.TopRow>
         <S.FilterRow>
           <S.Filters>
             <input placeholder="Name" />
-            <input placeholder="Category" />
+            <input placeholder="Age Category" />
             <input placeholder="Modality" />
-            <input placeholder="Gender" />
+            <input placeholder="Club" />
+            <input placeholder="Federation" />
+            {/* Advanced search */}
+            {/* <input placeholder="Nationality" /> */}
           </S.Filters>
           <S.ActionButtonWrapper>
             <button type="button">Reset</button>
@@ -59,7 +61,6 @@ function Athletes() {
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Surname</th>
                 <th>Nationality</th>
                 <th>Birth place</th>
                 <th>Birth date</th>
@@ -71,8 +72,7 @@ function Athletes() {
             <tbody>
               {athletes.map(athlete => (
                 <tr key={athlete.athleteId}>
-                  <S.Cell>{athlete.name}</S.Cell>
-                  <S.Cell>{athlete.surnames}</S.Cell>
+                  <S.Cell>{`${athlete.name} ${athlete.surnames}`}</S.Cell>
                   <S.Cell>{athlete.nationality}</S.Cell>
                   <S.Cell>{athlete.birthPlace}</S.Cell>
                   <S.Cell>{athlete.birthDate}</S.Cell>

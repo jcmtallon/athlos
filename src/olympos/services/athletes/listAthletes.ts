@@ -2,7 +2,8 @@ import { collection, getDocs } from 'firebase/firestore/lite'
 import { firestore } from '../../firestoreSetup'
 import { Athlete } from '../../types'
 
-const listAthletes = async () => {
+// TODO: type guard layer, some custom error, etc.
+const listAthletes = async (): Promise<Athlete[]> => {
   const athletesRef = collection(firestore, `athletes`)
   const docs = await getDocs(athletesRef)
 

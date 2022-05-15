@@ -19,7 +19,7 @@ const FilterRow = styled.div`
 const Filters = styled.div`
   display: grid;
   grid-column-gap: 14px;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto auto;
 `
 
 const ActionButtonWrapper = styled.div`
@@ -29,8 +29,12 @@ const ActionButtonWrapper = styled.div`
 `
 
 const Table = styled.table`
+  padding: 6px;
   width: 100%;
   margin-top: 20px;
+  margin: 10px;
+  border: 1px solid gray;
+  background-color: white;
 `
 
 const Cell = styled.td`
