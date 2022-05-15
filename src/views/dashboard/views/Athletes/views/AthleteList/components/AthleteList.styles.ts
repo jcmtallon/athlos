@@ -4,18 +4,23 @@ const Wrapper = styled.div``
 
 const Header = styled.div`
   font-weight: bold;
+  padding: 10px;
 `
 
 const TopRow = styled.div`
   display: flex;
   justify-content: space-between;
+  padding: 10px;
+`
+
+const TableWrapper = styled.div`
+  display: flex;
+  margin-top: 20px;
+  padding: 10px;
 `
 
 const Table = styled.table`
-  padding: 6px;
   width: 100%;
-  margin-top: 20px;
-  margin: 10px;
   border: 1px solid gray;
   background-color: white;
 `
@@ -25,4 +30,4 @@ const Cell = styled.td`
   padding: 6px;
 `
 
-export { Header, Wrapper, TopRow, Table, Cell }
+export { Header, Wrapper, TopRow, TableWrapper, Table, Cell }

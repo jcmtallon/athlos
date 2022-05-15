@@ -44,30 +44,32 @@ function AthleteList() {
         </S.TopRow>
         <AthleteListSearchForm />
         {athletes && clubs && federations && (
-          <S.Table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Nationality</th>
-                <th>Birth date</th>
-                <th>License code</th>
-                <th>Club</th>
-                <th>Federation</th>
-              </tr>
-            </thead>
-            <tbody>
-              {athletes.map(athlete => (
-                <tr key={athlete.athleteId}>
-                  <S.Cell>{`${athlete.name} ${athlete.surnames}`}</S.Cell>
-                  <S.Cell>{athlete.nationality}</S.Cell>
-                  <S.Cell>{athlete.birthDate}</S.Cell>
-                  <S.Cell>{athlete.licenseCode}</S.Cell>
-                  <S.Cell>{clubs[athlete.clubId].name}</S.Cell>
-                  <S.Cell>{federations[athlete.federationId].name}</S.Cell>
+          <S.TableWrapper>
+            <S.Table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Nationality</th>
+                  <th>Birth date</th>
+                  <th>License code</th>
+                  <th>Club</th>
+                  <th>Federation</th>
                 </tr>
-              ))}
-            </tbody>
-          </S.Table>
+              </thead>
+              <tbody>
+                {athletes.map(athlete => (
+                  <tr key={athlete.athleteId}>
+                    <S.Cell>{`${athlete.name} ${athlete.surnames}`}</S.Cell>
+                    <S.Cell>{athlete.nationality}</S.Cell>
+                    <S.Cell>{athlete.birthDate}</S.Cell>
+                    <S.Cell>{athlete.licenseCode}</S.Cell>
+                    <S.Cell>{clubs[athlete.clubId].name}</S.Cell>
+                    <S.Cell>{federations[athlete.federationId].name}</S.Cell>
+                  </tr>
+                ))}
+              </tbody>
+            </S.Table>
+          </S.TableWrapper>
         )}
       </S.Wrapper>
     </DashboardLayout>

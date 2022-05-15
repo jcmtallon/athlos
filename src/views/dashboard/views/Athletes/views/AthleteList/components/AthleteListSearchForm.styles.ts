@@ -9,7 +9,6 @@ const Filters = styled.div`
   display: grid;
   grid-column-gap: 14px;
   grid-template-columns: auto auto auto auto auto auto;
-  margin: 10px;
 `
 
 const ActionButtonWrapper = styled.div`
