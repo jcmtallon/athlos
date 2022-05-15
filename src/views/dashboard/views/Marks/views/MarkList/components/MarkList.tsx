@@ -1,9 +1,9 @@
 import { DashboardLayout } from 'features/dashboard'
 import React, { useEffect, useState } from 'react'
 import { addMark, getMark } from 'olympos'
-import * as S from './Marks.styles'
+import * as S from './MarkList.styles'
 
-function Marks() {
+function MarkList() {
   const [marks, setMarks] = useState<any>(null)
 
   useEffect(() => {
@@ -32,4 +32,4 @@ function Marks() {
   )
 }
 
-export { Marks }
+export { MarkList }

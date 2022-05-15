@@ -1,9 +1,9 @@
 import { DashboardLayout } from 'features/dashboard'
 import React, { useEffect, useState } from 'react'
 import { listAthletes, Athlete, Club, Federation, getClubs, getFederations } from 'olympos'
-import * as S from './Athletes.styles'
+import * as S from './AthleteList.styles'
 
-function Athletes() {
+function AthleteList() {
   const [athletes, setAthletes] = useState<Athlete[]>([])
   const [clubs, setClubs] = useState<{ [key: string]: Club } | null>(null)
   const [federations, setFederations] = useState<{ [key: string]: Federation } | null>(null)
@@ -89,4 +89,4 @@ function Athletes() {
   )
 }
 
-export { Athletes }
+export { AthleteList }
