@@ -44,11 +44,13 @@ function Athletes() {
         <S.FilterRow>
           <S.Filters>
             <input placeholder="Name" />
+            <input placeholder="Division" />
             <input placeholder="Age Category" />
-            <input placeholder="Modality" />
+            <input placeholder="Discipline" />
             <input placeholder="Club" />
             <input placeholder="Federation" />
-            {/* Advanced search */}
+            {/* TODO: Advanced search */}
+            {/* <input placeholder="License Code" /> */}
             {/* <input placeholder="Nationality" /> */}
           </S.Filters>
           <S.ActionButtonWrapper>
@@ -62,7 +64,6 @@ function Athletes() {
               <tr>
                 <th>Name</th>
                 <th>Nationality</th>
-                <th>Birth place</th>
                 <th>Birth date</th>
                 <th>License code</th>
                 <th>Club</th>
@@ -74,7 +75,6 @@ function Athletes() {
                 <tr key={athlete.athleteId}>
                   <S.Cell>{`${athlete.name} ${athlete.surnames}`}</S.Cell>
                   <S.Cell>{athlete.nationality}</S.Cell>
-                  <S.Cell>{athlete.birthPlace}</S.Cell>
                   <S.Cell>{athlete.birthDate}</S.Cell>
                   <S.Cell>{athlete.licenseCode}</S.Cell>
                   <S.Cell>{clubs[athlete.clubId].name}</S.Cell>

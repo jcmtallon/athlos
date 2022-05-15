@@ -1,11 +1,14 @@
+import { DivisionId } from '../Division/DivisionId'
+
 interface Athlete {
   athleteId: string
   name: string
   surnames: string
   nationality: string // TODO(0): use const here.
-  birthPlace: string // TODO(0): Remove this field.
   birthDate: string // TODO(0): better a Date?
   clubId: string
+  disciplineIds: string[]
+  divisionIds: DivisionId[]
   federationId: string
   licenseCode: string
 }
