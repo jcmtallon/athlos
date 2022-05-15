@@ -1,7 +1,6 @@
 import { DashboardLayout } from 'features/dashboard'
 import React, { useEffect, useState } from 'react'
 import { listAthletes, Athlete, Club, Federation, getClubs, getFederations } from 'olympos'
-import { AthleteListSearchForm } from './AthleteListSearchForm'
 import * as S from './AthleteList.styles'
 
 function AthleteList() {
@@ -42,7 +41,7 @@ function AthleteList() {
         <S.TopRow>
           <S.Header>Search</S.Header>
         </S.TopRow>
-        <AthleteListSearchForm />
+        <S.SearchForm />
         {athletes && clubs && federations && (
           <S.TableWrapper>
             <S.Table>

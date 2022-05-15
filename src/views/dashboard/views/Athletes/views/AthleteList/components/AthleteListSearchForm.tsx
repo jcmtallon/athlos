@@ -1,12 +1,43 @@
-import React from 'react'
+import { DivisionId } from 'olympos'
+import React, { useState } from 'react'
 import * as S from './AthleteListSearchForm.styles'
 
-function AthleteListSearchForm() {
+interface FormState {
+  name: string
+  division: DivisionId | undefined
+}
+
+// Abstract state. Possibly using a reducer.
+const formInitialState: FormState = {
+  name: '',
+  division: undefined,
+}
+
+interface AthleteListSearchFormProps {
+  className?: string
+}
+
+function AthleteListSearchForm(props: AthleteListSearchFormProps) {
+  const { className } = props
+
+  // TODO: Reflect params in url.
+  const [formState, setFormState] = useState<FormState>(formInitialState)
+
   return (
-    <S.FilterRow>
+    <S.FilterRow className={className}>
       <S.Filters>
-        <input placeholder="Name" />
-        <input placeholder="Division" />
+        <input
+          placeholder="Name"
+          value={formState.name}
+          onChange={e => setFormState({ ...formState, name: e.target.value })}
+        />
+        <S.DivisionSelect aria-label="Division selector" value={formState.division}>
+          <S.EmptyOption value={undefined} disabled selected hidden>
+            Division
+          </S.EmptyOption>
+          <option value="WOMEN">Women</option>
+          <option value="WOMEN">Man</option>
+        </S.DivisionSelect>
         <input placeholder="Age Category" />
         <input placeholder="Discipline" />
         <input placeholder="Club" />
@@ -16,8 +47,8 @@ function AthleteListSearchForm() {
         {/* <input placeholder="Nationality" /> */}
       </S.Filters>
       <S.ActionButtonWrapper>
-        <button type="button">Reset</button>
-        <button type="button">Search</button>
+        <S.Button type="button">Reset</S.Button>
+        <S.Button type="button">Search</S.Button>
       </S.ActionButtonWrapper>
     </S.FilterRow>
   )

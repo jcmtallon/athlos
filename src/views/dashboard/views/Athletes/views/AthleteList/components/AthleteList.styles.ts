@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { AthleteListSearchForm } from './AthleteListSearchForm'
 
 const Wrapper = styled.div``
 
@@ -10,6 +11,10 @@ const Header = styled.div`
 const TopRow = styled.div`
   display: flex;
   justify-content: space-between;
+  padding: 10px;
+`
+
+const SearchForm = styled(AthleteListSearchForm)`
   padding: 10px;
 `
 
@@ -30,4 +35,4 @@ const Cell = styled.td`
   padding: 6px;
 `
 
-export { Header, Wrapper, TopRow, TableWrapper, Table, Cell }
+export { Header, Wrapper, TopRow, TableWrapper, Table, Cell, SearchForm }
