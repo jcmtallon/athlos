@@ -1,6 +1,7 @@
 import { DashboardLayout } from 'features/dashboard'
 import React, { useEffect, useState } from 'react'
 import { listAthletes, Athlete, Club, Federation, getClubs, getFederations } from 'olympos'
+import { AthleteListSearchForm } from './AthleteListSearchForm'
 import * as S from './AthleteList.styles'
 
 function AthleteList() {
@@ -41,23 +42,7 @@ function AthleteList() {
         <S.TopRow>
           <S.Header>Search</S.Header>
         </S.TopRow>
-        <S.FilterRow>
-          <S.Filters>
-            <input placeholder="Name" />
-            <input placeholder="Division" />
-            <input placeholder="Age Category" />
-            <input placeholder="Discipline" />
-            <input placeholder="Club" />
-            <input placeholder="Federation" />
-            {/* TODO: Advanced search */}
-            {/* <input placeholder="License Code" /> */}
-            {/* <input placeholder="Nationality" /> */}
-          </S.Filters>
-          <S.ActionButtonWrapper>
-            <button type="button">Reset</button>
-            <button type="button">Search</button>
-          </S.ActionButtonWrapper>
-        </S.FilterRow>
+        <AthleteListSearchForm />
         {athletes && clubs && federations && (
           <S.Table>
             <thead>

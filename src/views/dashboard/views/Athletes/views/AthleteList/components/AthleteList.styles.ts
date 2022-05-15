@@ -11,24 +11,6 @@ const TopRow = styled.div`
   justify-content: space-between;
 `
 
-const FilterRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
-
-const Filters = styled.div`
-  display: grid;
-  grid-column-gap: 14px;
-  grid-template-columns: auto auto auto auto auto auto;
-  margin: 10px;
-`
-
-const ActionButtonWrapper = styled.div`
-  display: grid;
-  grid-column-gap: 8px;
-  grid-template-columns: auto auto;
-`
-
 const Table = styled.table`
   padding: 6px;
   width: 100%;
@@ -43,4 +25,4 @@ const Cell = styled.td`
   padding: 6px;
 `
 
-export { ActionButtonWrapper, Header, Wrapper, Filters, FilterRow, TopRow, Table, Cell }
+export { Header, Wrapper, TopRow, Table, Cell }
