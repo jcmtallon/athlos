@@ -1,9 +1,9 @@
 import React from 'react'
 import { Navigate, Route, Routes as RouterRoutes } from 'react-router-dom'
-import { Dashboard } from './dashboard'
+import { Dashboard } from './Dashboard'
 
-const DesignSystem = React.lazy(() => import('./designSystem').then(mod => ({ default: mod.DesignSystem })))
-const Performance = React.lazy(() => import('./performance').then(mod => ({ default: mod.Performance })))
+const DesignSystem = React.lazy(() => import('./DesignSystem').then(mod => ({ default: mod.DesignSystem })))
+const Performance = React.lazy(() => import('./Performance').then(mod => ({ default: mod.Performance })))
 
 function Routes() {
   return (
