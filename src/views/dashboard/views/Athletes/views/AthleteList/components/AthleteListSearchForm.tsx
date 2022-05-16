@@ -13,21 +13,21 @@ import * as S from './AthleteListSearchForm.styles'
 
 interface FormState {
   name: string
-  divisionId: DivisionId | undefined
-  ageCategoryId: AgeCategoryId | undefined
-  federationId: Federation['federationId'] | undefined
-  clubId: Club['clubId'] | undefined
-  disciplineId: Discipline['disciplineId'] | undefined
+  divisionId: DivisionId | ''
+  ageCategoryId: AgeCategoryId | ''
+  federationId: Federation['federationId'] | ''
+  clubId: Club['clubId'] | ''
+  disciplineId: Discipline['disciplineId'] | ''
 }
 
 // Abstract state. Possibly using a reducer.
 const formInitialState: FormState = {
   name: '',
-  divisionId: undefined,
-  ageCategoryId: undefined,
-  federationId: undefined,
-  clubId: undefined,
-  disciplineId: undefined,
+  divisionId: '',
+  ageCategoryId: '',
+  federationId: '',
+  clubId: '',
+  disciplineId: '',
 }
 
 interface AthleteListSearchFormProps {
@@ -52,8 +52,12 @@ function AthleteListSearchForm(props: AthleteListSearchFormProps) {
     fetchFederation()
   }, [])
 
+  // TODO: Reflect params in url
+  const resetForm = () => {
+    setFormState(formInitialState)
+  }
+
   // TO BE CONTINUED:
-  // - Añadiendo controladores a los filtros.
   // - GOAL: Poder filtrar los resultados.
 
   return (
@@ -68,9 +72,8 @@ function AthleteListSearchForm(props: AthleteListSearchFormProps) {
         <S.DivisionSelect
           aria-label="Division selector"
           value={formState.divisionId}
-          defaultValue={undefined}
           onChange={e => setFormState({ ...formState, divisionId: e.target.value as DivisionId })}>
-          <S.EmptyOption value={undefined}>Division</S.EmptyOption>
+          <S.EmptyOption value="">Division</S.EmptyOption>
           {/* TODO: localization */}
           {Object.keys(DIVISION_ID).map(id => (
             <option key={id} value={id}>
@@ -82,9 +85,8 @@ function AthleteListSearchForm(props: AthleteListSearchFormProps) {
         <select
           aria-label="Age Category selector"
           value={formState.ageCategoryId}
-          defaultValue={undefined}
           onChange={e => setFormState({ ...formState, ageCategoryId: e.target.value as AgeCategoryId })}>
-          <S.EmptyOption value={undefined}>Category</S.EmptyOption>
+          <S.EmptyOption value="">Category</S.EmptyOption>
           {Object.keys(AGE_CATEGORY_ID).map(id => (
             <option key={id} value={id}>
               {id}
@@ -95,9 +97,8 @@ function AthleteListSearchForm(props: AthleteListSearchFormProps) {
         <select
           aria-label="Disciplines selector"
           value={formState.disciplineId}
-          defaultValue={undefined}
           onChange={e => setFormState({ ...formState, disciplineId: e.target.value })}>
-          <S.EmptyOption value={undefined}>Discipline</S.EmptyOption>
+          <S.EmptyOption value="">Discipline</S.EmptyOption>
           {disciplines.map(d => (
             <option key={d.disciplineId} value={d.disciplineId}>
               {d.name.es}
@@ -107,12 +108,11 @@ function AthleteListSearchForm(props: AthleteListSearchFormProps) {
 
         <select
           aria-label="Federation selector"
-          defaultValue={undefined}
           value={formState.federationId}
           onChange={e =>
             setFormState({ ...formState, federationId: e.target.value as Federation['federationId'] })
           }>
-          <S.EmptyOption value={undefined}>Federation</S.EmptyOption>
+          <S.EmptyOption value="">Federation</S.EmptyOption>
           {federations !== null &&
             Object.keys(federations).map(id => (
               <option key={id} value={id}>
@@ -123,10 +123,9 @@ function AthleteListSearchForm(props: AthleteListSearchFormProps) {
 
         <select
           aria-label="club selector"
-          defaultValue={undefined}
           value={formState.clubId}
           onChange={e => setFormState({ ...formState, clubId: e.target.value as Club['clubId'] })}>
-          <S.EmptyOption value={undefined}>Club</S.EmptyOption>
+          <S.EmptyOption value="">Club</S.EmptyOption>
           {clubs !== null &&
             Object.keys(clubs).map(id => (
               <option key={id} value={id}>
@@ -140,7 +139,9 @@ function AthleteListSearchForm(props: AthleteListSearchFormProps) {
         {/* <input placeholder="Nationality" /> */}
       </S.Filters>
       <S.ActionButtonWrapper>
-        <S.Button type="button">Reset</S.Button>
+        <S.Button type="button" onClick={resetForm}>
+          Reset
+        </S.Button>
         <S.Button type="button">Search</S.Button>
       </S.ActionButtonWrapper>
     </S.FilterRow>
