@@ -1,11 +1,27 @@
-import { collection, getDocs } from 'firebase/firestore/lite'
+import { collection, getDocs, query, where, WhereFilterOp } from 'firebase/firestore/lite'
 import { firestore } from '../../firestoreSetup'
-import { Athlete } from '../../types'
+import { Athlete, Club, DivisionId } from '../../types'
+
+interface ListAthletesOptions {
+  divisionId?: DivisionId
+  clubId?: Club['clubId']
+}
 
 // TODO: type guard layer, some custom error, etc.
-const listAthletes = async (): Promise<Athlete[]> => {
+const listAthletes = async (options: ListAthletesOptions): Promise<Athlete[]> => {
+  const { clubId, divisionId } = options
+
   const athletesRef = collection(firestore, `athletes`)
-  const docs = await getDocs(athletesRef)
+
+  const filters: [string, WhereFilterOp, string][] = []
+
+  // TODO: change club to club_ID
+  if (clubId) filters.push(['club', '==', clubId])
+  if (divisionId) filters.push(['divisions', 'array-contains', divisionId])
+
+  const whereArray = filters.map(f => where(f[0], f[1], f[2]))
+  const q = query(athletesRef, ...whereArray)
+  const docs = await getDocs(q)
 
   const athletes: Athlete[] = []
 

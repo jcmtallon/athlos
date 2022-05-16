@@ -11,7 +11,7 @@ import {
 import React, { useEffect, useState } from 'react'
 import * as S from './AthleteListSearchForm.styles'
 
-interface FormState {
+interface AthleteListSearchFormState {
   name: string
   divisionId: DivisionId | ''
   ageCategoryId: AgeCategoryId | ''
@@ -20,8 +20,8 @@ interface FormState {
   disciplineId: Discipline['disciplineId'] | ''
 }
 
-// Abstract state. Possibly using a reducer.
-const formInitialState: FormState = {
+// TODO: Abstract state. Possibly using a reducer.
+const formInitialState: AthleteListSearchFormState = {
   name: '',
   divisionId: '',
   ageCategoryId: '',
@@ -32,15 +32,19 @@ const formInitialState: FormState = {
 
 interface AthleteListSearchFormProps {
   className?: string
+  // TODO: think a type for this.
   federations: { [key: string]: Federation } | null
   clubs: { [key: string]: Club } | null
+
+  // TODO: remove in favour of url param search
+  onSearchClick?: (state: AthleteListSearchFormState) => void
 }
 
 function AthleteListSearchForm(props: AthleteListSearchFormProps) {
-  const { className, federations, clubs } = props
+  const { className, federations, clubs, onSearchClick } = props
 
   // TODO: Reflect params in url.
-  const [formState, setFormState] = useState<FormState>(formInitialState)
+  const [formState, setFormState] = useState<AthleteListSearchFormState>(formInitialState)
   const [disciplines, setDisciplines] = useState<Discipline[]>([])
 
   useEffect(() => {
@@ -57,8 +61,10 @@ function AthleteListSearchForm(props: AthleteListSearchFormProps) {
     setFormState(formInitialState)
   }
 
-  // TO BE CONTINUED:
-  // - GOAL: Poder filtrar los resultados.
+  const search = () => {
+    // TODO: reflect state into url
+    onSearchClick?.(formState)
+  }
 
   return (
     <S.FilterRow className={className}>
@@ -142,10 +148,13 @@ function AthleteListSearchForm(props: AthleteListSearchFormProps) {
         <S.Button type="button" onClick={resetForm}>
           Reset
         </S.Button>
-        <S.Button type="button">Search</S.Button>
+        <S.Button type="button" onClick={search}>
+          Search
+        </S.Button>
       </S.ActionButtonWrapper>
     </S.FilterRow>
   )
 }
 
 export { AthleteListSearchForm }
+export type { AthleteListSearchFormState }

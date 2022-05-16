@@ -2,6 +2,7 @@ import { DashboardLayout } from 'features/dashboard'
 import React, { useEffect, useState } from 'react'
 import { listAthletes, Athlete, Club, Federation, getClubs, getFederations } from 'olympos'
 import * as S from './AthleteList.styles'
+import { AthleteListSearchFormState } from './AthleteListSearchForm'
 
 function AthleteList() {
   const [athletes, setAthletes] = useState<Athlete[]>([])
@@ -28,12 +29,20 @@ function AthleteList() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await listAthletes()
+      const data = await listAthletes({})
       setAthletes(data)
     }
 
     fetchData()
   }, [])
+
+  const handleAthleteSearch = async (state: AthleteListSearchFormState) => {
+    const data = await listAthletes({
+      clubId: state.clubId || undefined,
+      divisionId: state.divisionId || undefined,
+    })
+    setAthletes(data)
+  }
 
   return (
     <DashboardLayout>
@@ -41,7 +50,7 @@ function AthleteList() {
         <S.TopRow>
           <S.Header>Search</S.Header>
         </S.TopRow>
-        <S.SearchForm federations={federations} clubs={clubs} />
+        <S.SearchForm federations={federations} clubs={clubs} onSearchClick={handleAthleteSearch} />
         {athletes && clubs && federations && (
           <S.TableWrapper>
             <S.Table>
