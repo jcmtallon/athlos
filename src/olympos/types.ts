@@ -1,7 +1,12 @@
 export { EVENT } from './types/Event/Event'
 export { EVENT_ID } from './types/Event/EventId'
 export { EVENT_TYPE } from './types/Event/EventType'
+export { AGE_CATEGORY_ID } from './types/AgeCategory/AgeCategoryId'
+export { AGE_CATEGORY } from './types/AgeCategory/AgeCategory'
+export { DIVISION_ID } from './types/Division/DivisionId'
 
+export type { AgeCategory } from './types/AgeCategory/AgeCategory'
+export type { AgeCategoryId } from './types/AgeCategory/AgeCategoryId'
 export type { Athlete } from './types/Athlete/Athlete'
 export type { Club } from './types/Club/Club'
 export type { Discipline } from './types/Discipline/Discipline'

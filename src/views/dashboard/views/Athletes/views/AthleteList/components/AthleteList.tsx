@@ -41,7 +41,7 @@ function AthleteList() {
         <S.TopRow>
           <S.Header>Search</S.Header>
         </S.TopRow>
-        <S.SearchForm />
+        <S.SearchForm federations={federations} clubs={clubs} />
         {athletes && clubs && federations && (
           <S.TableWrapper>
             <S.Table>
