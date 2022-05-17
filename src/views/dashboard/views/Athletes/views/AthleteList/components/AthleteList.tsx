@@ -38,8 +38,12 @@ function AthleteList() {
 
   const handleAthleteSearch = async (state: AthleteListSearchFormState) => {
     const data = await listAthletes({
-      clubId: state.clubId || undefined,
+      name: state.name || undefined,
       divisionId: state.divisionId || undefined,
+      ageCategoryId: state.ageCategoryId || undefined,
+      disciplineId: state.disciplineId || undefined,
+      clubId: state.clubId || undefined,
+      federationId: state.federationId || undefined,
     })
     setAthletes(data)
   }
