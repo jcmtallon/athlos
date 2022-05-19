@@ -29,7 +29,7 @@ const listAthletes = async (options: ListAthletesOptions): Promise<Athlete[]> =>
   // TODO: change club to club_ID
   if (name) filters.push(['name', '==', name])
   // if (ageCategoryId) filters.push([''])
-  if (divisionId) filters.push(['division_ids', 'in', divisionId])
+  if (divisionId) filters.push(['division_ids', '==', divisionId])
   if (disciplineId) filters.push(['discipline_ids', 'array-contains', disciplineId])
   if (clubId) filters.push(['club_id', '==', clubId])
   if (federationId) filters.push(['federation_id', '==', federationId])
