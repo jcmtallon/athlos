@@ -1,4 +1,5 @@
-import { collection, getDocs, query, where, WhereFilterOp } from 'firebase/firestore/lite'
+import { collection, getDocs, query, where, WhereFilterOp, Timestamp } from 'firebase/firestore/lite'
+import { resolveAgeCategoryRangeLimitDates } from 'olympos/utils'
 import { firestore } from '../../firestoreSetup'
 import { AgeCategoryId, Athlete, Club, Discipline, DivisionId, Federation } from '../../types'
 
@@ -17,7 +18,7 @@ const listAthletes = async (options: ListAthletesOptions): Promise<Athlete[]> =>
 
   const athletesRef = collection(firestore, `athletes`)
 
-  const filters: [string, WhereFilterOp, string][] = []
+  const filters: [string, WhereFilterOp, string | Timestamp][] = []
 
   // TO BE CONTINUED:
   // - Filter by ageCategory algorithm.
@@ -26,13 +27,22 @@ const listAthletes = async (options: ListAthletesOptions): Promise<Athlete[]> =>
   //    Make gender a string?
   //    Save gender as MEN | WOMEN and all possible permutations (then you use the 'in' operand...)
 
-  // TODO: change club to club_ID
+  // TODO: Pagination
+
   if (name) filters.push(['name', '==', name])
-  // if (ageCategoryId) filters.push([''])
   if (divisionId) filters.push(['division_ids', '==', divisionId])
   if (disciplineId) filters.push(['discipline_ids', 'array-contains', disciplineId])
   if (clubId) filters.push(['club_id', '==', clubId])
   if (federationId) filters.push(['federation_id', '==', federationId])
+  if (ageCategoryId) {
+    const [start, end] = resolveAgeCategoryRangeLimitDates(ageCategoryId)
+    const startTimestamp = Timestamp.fromDate(start)
+    const endTimestamp = Timestamp.fromDate(end)
+
+    // TODO: create an index for birth_date.
+    filters.push(['birth_date', '>=', startTimestamp])
+    filters.push(['birth_date', '<=', endTimestamp])
+  }
 
   const whereArray = filters.map(f => where(f[0], f[1], f[2]))
   const q = query(athletesRef, ...whereArray)

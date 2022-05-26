@@ -3,3 +3,7 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom'
+
+// For testing dates.
+// Timezone offset is reset directly in the test script.
+jest.useFakeTimers().setSystemTime(new Date('2022-01-01'))

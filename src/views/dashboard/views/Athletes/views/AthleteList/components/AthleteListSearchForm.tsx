@@ -59,6 +59,7 @@ function AthleteListSearchForm(props: AthleteListSearchFormProps) {
   // TODO: Reflect params in url
   const resetForm = () => {
     setFormState(formInitialState)
+    onSearchClick?.(formState)
   }
 
   const search = () => {
