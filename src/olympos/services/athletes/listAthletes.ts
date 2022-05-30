@@ -20,13 +20,6 @@ const listAthletes = async (options: ListAthletesOptions): Promise<Athlete[]> =>
 
   const filters: [string, WhereFilterOp, string | Timestamp][] = []
 
-  // TO BE CONTINUED:
-  // - Filter by ageCategory algorithm.
-  // - Can search array contains gender + discipline. Values in database contain DIVISION_DISCIPLINE?
-  //    Selecting gender filters selectable disciplines?
-  //    Make gender a string?
-  //    Save gender as MEN | WOMEN and all possible permutations (then you use the 'in' operand...)
-
   // TODO: Pagination
 
   if (name) filters.push(['name', '==', name])
@@ -39,7 +32,10 @@ const listAthletes = async (options: ListAthletesOptions): Promise<Athlete[]> =>
     const startTimestamp = Timestamp.fromDate(start)
     const endTimestamp = Timestamp.fromDate(end)
 
-    // TODO: create an index for birth_date.
+    // TO BE CONTINUED: accessing urls from console log
+    // TO BE CONTINUED: sorting and pagination
+    // TO BE CONTINUED: check with my father which searches are important.
+    // TO BE CONTINUED: https://www.youtube.com/watch?v=Ofux_4c94FI&t=331s understand
     filters.push(['birth_date', '>=', startTimestamp])
     filters.push(['birth_date', '<=', endTimestamp])
   }

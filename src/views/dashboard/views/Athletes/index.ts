@@ -1,1 +1,1 @@
-export { AthleteList } from './views/AthleteList'
+export { AthletesRouter as Athletes } from './components/AthletesRouter'
