@@ -1,7 +1,8 @@
+import { SlidePanelRoute } from 'components/lib/SlidePanelRoute'
 import React from 'react'
 
 function AthleteDetails() {
-  return <div>Details!</div>
+  return <SlidePanelRoute>Details!</SlidePanelRoute>
 }
 
 export { AthleteDetails }
