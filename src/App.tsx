@@ -1,4 +1,4 @@
-import { AppErrorBoundary } from 'components/src/AppErrorBoundary'
+import { AppErrorBoundary } from 'components'
 import React from 'react'
 import { GlobalStyles, ThemeProvider } from './theme'
 import { Routes } from './views/Routes'
