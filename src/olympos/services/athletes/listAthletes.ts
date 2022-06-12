@@ -32,6 +32,9 @@ const listAthletes = async (options: ListAthletesOptions): Promise<Athlete[]> =>
     const startTimestamp = Timestamp.fromDate(start)
     const endTimestamp = Timestamp.fromDate(end)
 
+    // TO BE CONTINUED: https://reactrouter.com/docs/en/v6/getting-started/overview
+    // TO BE CONTINUED: slideRoute
+
     // TO BE CONTINUED: accessing urls from console log
     // TO BE CONTINUED: sorting and pagination
     // TO BE CONTINUED: check with my father which searches are important.

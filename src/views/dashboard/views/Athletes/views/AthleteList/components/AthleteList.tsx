@@ -1,6 +1,7 @@
 import { DashboardLayout } from 'features/dashboard'
 import React, { useEffect, useState } from 'react'
 import { listAthletes, Athlete, Club, Federation, getClubs, getFederations } from 'olympos'
+import { Outlet, useNavigate } from 'react-router-dom'
 import * as S from './AthleteList.styles'
 import { AthleteListSearchFormState } from './AthleteListSearchForm'
 
@@ -8,6 +9,8 @@ function AthleteList() {
   const [athletes, setAthletes] = useState<Athlete[]>([])
   const [clubs, setClubs] = useState<{ [key: string]: Club } | null>(null)
   const [federations, setFederations] = useState<{ [key: string]: Federation } | null>(null)
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchClubs = async () => {
@@ -48,43 +51,51 @@ function AthleteList() {
     setAthletes(data)
   }
 
+  const handleItemClick = (athleteId: string) => {
+    navigate(`/dashboard/athletes/${athleteId}`)
+  }
+
   return (
-    <DashboardLayout>
-      <S.Wrapper>
-        <S.TopRow>
-          <S.Header>Search</S.Header>
-        </S.TopRow>
-        <S.SearchForm federations={federations} clubs={clubs} onSearchClick={handleAthleteSearch} />
-        {athletes && clubs && federations && (
-          <S.TableWrapper>
-            <S.Table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Nationality</th>
-                  <th>Birth date</th>
-                  <th>License code</th>
-                  <th>Club</th>
-                  <th>Federation</th>
-                </tr>
-              </thead>
-              <tbody>
-                {athletes.map(athlete => (
-                  <tr key={athlete.athleteId}>
-                    <S.Cell>{`${athlete.name} ${athlete.surnames}`}</S.Cell>
-                    <S.Cell>{athlete.nationality}</S.Cell>
-                    <S.Cell>{athlete.birthDate}</S.Cell>
-                    <S.Cell>{athlete.licenseCode}</S.Cell>
-                    <S.Cell>{clubs[athlete.clubId].name}</S.Cell>
-                    <S.Cell>{federations[athlete.federationId].name}</S.Cell>
+    <>
+      <DashboardLayout>
+        <S.Wrapper>
+          <S.TopRow>
+            <S.Header>Search</S.Header>
+          </S.TopRow>
+          <S.SearchForm federations={federations} clubs={clubs} onSearchClick={handleAthleteSearch} />
+          {athletes && clubs && federations && (
+            <S.TableWrapper>
+              <S.Table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Nationality</th>
+                    <th>Birth date</th>
+                    <th>License code</th>
+                    <th>Club</th>
+                    <th>Federation</th>
                   </tr>
-                ))}
-              </tbody>
-            </S.Table>
-          </S.TableWrapper>
-        )}
-      </S.Wrapper>
-    </DashboardLayout>
+                </thead>
+                <tbody>
+                  {athletes.map(athlete => (
+                    <tr key={athlete.athleteId} onClick={() => handleItemClick(athlete.athleteId)}>
+                      <S.Cell>{`${athlete.name} ${athlete.surnames}`}</S.Cell>
+                      <S.Cell>{athlete.nationality}</S.Cell>
+                      <S.Cell>{athlete.birthDate}</S.Cell>
+                      <S.Cell>{athlete.licenseCode}</S.Cell>
+                      <S.Cell>{clubs[athlete.clubId].name}</S.Cell>
+                      <S.Cell>{federations[athlete.federationId].name}</S.Cell>
+                    </tr>
+                  ))}
+                </tbody>
+              </S.Table>
+            </S.TableWrapper>
+          )}
+          {/* TODO: Placed here for testing purposes. Move to outside dashboard layout. */}
+          <Outlet />
+        </S.Wrapper>
+      </DashboardLayout>
+    </>
   )
 }
 
