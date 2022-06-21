@@ -17,7 +17,7 @@ const getAthlete = async (athleteId: string): Promise<Athlete> => {
     surnames: data.surnames,
     nationality: data.nationality,
     disciplineIds: data.discipline_ids,
-    divisionIds: data.division_ids,
+    divisionId: data.division_id,
     birthDate: data.birth_date.toDate().toISOString(),
     clubId: data.club_id,
     federationId: data.federation_id,

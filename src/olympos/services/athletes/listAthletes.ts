@@ -23,7 +23,7 @@ const listAthletes = async (options: ListAthletesOptions): Promise<Athlete[]> =>
   // TODO: Pagination
 
   if (name) filters.push(['name', '==', name])
-  if (divisionId) filters.push(['division_ids', '==', divisionId])
+  if (divisionId) filters.push(['division_id', '==', divisionId])
   if (disciplineId) filters.push(['discipline_ids', 'array-contains', disciplineId])
   if (clubId) filters.push(['club_id', '==', clubId])
   if (federationId) filters.push(['federation_id', '==', federationId])
@@ -57,7 +57,7 @@ const listAthletes = async (options: ListAthletesOptions): Promise<Athlete[]> =>
       surnames: data.surnames,
       nationality: data.nationality,
       disciplineIds: data.discipline_ids,
-      divisionIds: data.division_ids,
+      divisionId: data.division_id,
       birthDate: data.birth_date.toDate().toISOString(),
       clubId: data.club_id,
       federationId: data.federation_id,

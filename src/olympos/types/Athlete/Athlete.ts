@@ -8,7 +8,7 @@ interface Athlete {
   birthDate: string // TODO(0): better a Date?
   clubId: string
   disciplineIds: string[]
-  divisionIds: DivisionId[]
+  divisionId: DivisionId
   federationId: string
   licenseCode: string
 }
