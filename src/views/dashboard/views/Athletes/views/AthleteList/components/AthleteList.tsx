@@ -1,34 +1,20 @@
 import { DashboardLayout } from 'features/dashboard'
 import React, { useEffect, useState } from 'react'
-import { listAthletes, Athlete, Club, Federation, getClubs, getFederations } from 'olympos'
+import { listAthletes, Athlete, Club, Federation } from 'olympos'
 import { Outlet, useNavigate } from 'react-router-dom'
 import * as S from './AthleteList.styles'
 import { AthleteListSearchFormState } from './AthleteListSearchForm'
 
-function AthleteList() {
+interface AthleteListProps {
+  clubs: { [key: string]: Club } | null
+  federations: { [key: string]: Federation } | null
+}
+
+function AthleteList(props: AthleteListProps) {
   const [athletes, setAthletes] = useState<Athlete[]>([])
-  const [clubs, setClubs] = useState<{ [key: string]: Club } | null>(null)
-  const [federations, setFederations] = useState<{ [key: string]: Federation } | null>(null)
+  const { clubs, federations } = props
 
   const navigate = useNavigate()
-
-  useEffect(() => {
-    const fetchClubs = async () => {
-      const data = await getClubs()
-      setClubs(data)
-    }
-
-    fetchClubs()
-  }, [])
-
-  useEffect(() => {
-    const fetchFederation = async () => {
-      const data = await getFederations()
-      setFederations(data)
-    }
-
-    fetchFederation()
-  }, [])
 
   useEffect(() => {
     const fetchData = async () => {
