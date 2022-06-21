@@ -33,7 +33,7 @@ function AthleteDetails(props: AthleteDetailsProps) {
       <div>Surnames: {athleteDetails.surnames}</div>
       <div>Nationality: {athleteDetails.nationality}</div>
       <div>Disciplines: {athleteDetails.disciplineIds.map(id => id).join(', ')}</div>
-      {/* <div>{athleteDetails.divisionIds.map(id => id).join(', ')}</div> */}
+      <div>Division: {athleteDetails.divisionId}</div>
       <div>Birthday: {athleteDetails.birthDate}</div>
       <div>Club: {clubs[athleteDetails.clubId].name}</div>
       <div>Federation: {federations[athleteDetails.federationId].name}</div>
