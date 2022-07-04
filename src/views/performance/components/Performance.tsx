@@ -1,28 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { ComponentWithStateChanges } from './ComponentWithStateChanges'
 import { ComponentWithUnstableContent } from './ComponentWithUnstableContent'
-import { OuterParentState } from './OuterParentState'
 import * as S from './Performance.styles'
 
 function Performance() {
-  const [count, setCount] = useState(0)
-
-  const stateSection = (
-    <S.Box>
-      <div>useState inside parent component.Changes in states causes component and children to rerender.</div>
-      <div>Count: {count}</div>
-      <button type="button" onClick={() => setCount(count + 1)}>
-        Button
-      </button>
-    </S.Box>
-  )
-
   return (
     <div>
-      {stateSection}
       <S.Box>
-        <OuterParentState />
+        <ComponentWithUnstableContent />
       </S.Box>
-      <ComponentWithUnstableContent />
+      <S.Box>
+        <ComponentWithStateChanges />
+      </S.Box>
     </div>
   )
 }
